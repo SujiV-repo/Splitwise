@@ -1,13 +1,9 @@
 package com.project.splitwise.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Currency;
 import java.util.List;
 
 @Getter
@@ -21,5 +17,6 @@ public class Expense extends BaseModel{
     private Currency currency;
 
     @OneToMany
+    @JoinColumn(name = "expense_id")
     private List<UserExpense> userExpenses;
 }
