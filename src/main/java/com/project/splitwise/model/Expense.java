@@ -17,6 +17,6 @@ public class Expense extends BaseModel{
     private Currency currency;
 
     @OneToMany
-    @JoinColumn(name = "expense_id")
+    @JoinColumn(name = "splitwise_expense_id")
     private List<UserExpense> userExpenses;
 }

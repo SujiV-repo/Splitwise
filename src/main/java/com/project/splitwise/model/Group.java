@@ -18,7 +18,7 @@ public class Group extends BaseModel{
     private Currency defaultCurrency;
 
     @OneToMany
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "splitwise_group_id")
     private List<Expense> expenses;
 
     @ManyToMany
