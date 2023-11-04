@@ -117,7 +117,7 @@ public class InitServiceImpl implements InitService{
         userExpenseF.setUser(savedUserF);
         UserExpense savedUserExpenseF = userExpenseRepository.save(userExpenseF);
 
-        //saving every expense related to an user
+        //saving every expense related to a user
         Expense expense = new Expense();
         expense.setDescription("Total Expenses for the month");
         expense.setAmount(3000);
