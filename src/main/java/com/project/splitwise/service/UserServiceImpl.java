@@ -1,7 +1,11 @@
 package com.project.splitwise.service;
 
 import com.project.splitwise.dto.UserDto;
+import com.project.splitwise.exception.GroupNotFoundException;
+import com.project.splitwise.exception.UserNotFoundException;
+import com.project.splitwise.model.Group;
 import com.project.splitwise.model.User;
+import com.project.splitwise.repository.GroupRepository;
 import com.project.splitwise.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +16,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private GroupRepository groupRepository;
+    @Autowired
     private ModelMapper modelMapper;
     @Override
     public UserDto registerUser(UserDto userDto) {
@@ -19,4 +25,14 @@ public class UserServiceImpl implements UserService{
         User savedUser = userRepository.save(user);
         return modelMapper.map(savedUser, UserDto.class);
     }
+
+    @Override
+    public void addUserToGroup(int userId, int groupId) throws UserNotFoundException, GroupNotFoundException {
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User is not registered with Id : " + userId));
+        Group group = groupRepository.findById(groupId).orElseThrow(() -> new GroupNotFoundException("Group is not created for the Id : "+ groupId));
+
+        user.getGroups().add(group);
+        userRepository.save(user);
+    }
+
 }
