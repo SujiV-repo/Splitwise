@@ -1,4 +1,4 @@
-package com.project.splitwise.service;
+package com.project.splitwise.service.ServiceImplementation;
 
 import com.project.splitwise.dto.GroupDto;
 import com.project.splitwise.dto.UserDto;
@@ -8,6 +8,7 @@ import com.project.splitwise.model.Group;
 import com.project.splitwise.model.User;
 import com.project.splitwise.repository.GroupRepository;
 import com.project.splitwise.repository.UserRepository;
+import com.project.splitwise.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired

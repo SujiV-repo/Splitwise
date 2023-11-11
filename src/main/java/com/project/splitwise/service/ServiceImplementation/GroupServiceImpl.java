@@ -1,14 +1,14 @@
-package com.project.splitwise.service;
+package com.project.splitwise.service.ServiceImplementation;
 
 import com.project.splitwise.dto.GroupDto;
 import com.project.splitwise.dto.TransactionDTO;
 import com.project.splitwise.exception.GroupNotFoundException;
 import com.project.splitwise.model.Group;
 import com.project.splitwise.repository.GroupRepository;
+import com.project.splitwise.service.GroupService;
 import com.project.splitwise.service.strategy.SettleUpStrategies;
 import com.project.splitwise.service.strategy.SettleUpStrategy;
 import com.project.splitwise.service.strategy.SettleUpStrategyFactory;
-import jdk.jfr.Category;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GroupServiceImpl implements GroupService{
+public class GroupServiceImpl implements GroupService {
     @Autowired
     private GroupRepository groupRepository;
     @Autowired

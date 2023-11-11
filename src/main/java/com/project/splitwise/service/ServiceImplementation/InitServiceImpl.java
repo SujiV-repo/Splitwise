@@ -1,17 +1,18 @@
-package com.project.splitwise.service;
+package com.project.splitwise.service.ServiceImplementation;
 
 import com.project.splitwise.model.*;
 import com.project.splitwise.repository.ExpenseRepository;
 import com.project.splitwise.repository.GroupRepository;
 import com.project.splitwise.repository.UserExpenseRepository;
 import com.project.splitwise.repository.UserRepository;
+import com.project.splitwise.service.InitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class InitServiceImpl implements InitService{
+public class InitServiceImpl implements InitService {
     @Autowired
     private GroupRepository groupRepository;
 
