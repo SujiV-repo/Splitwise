@@ -1,6 +1,8 @@
 package com.project.splitwise.controller;
 
 import com.project.splitwise.dto.UserExpenseDto;
+import com.project.splitwise.exception.ExpenseNotFoundException;
+import com.project.splitwise.exception.UserExpenseNotFoundException;
 import com.project.splitwise.exception.UserNotFoundException;
 import com.project.splitwise.service.UserExpenseService;
 import com.project.splitwise.service.UserService;
@@ -22,9 +24,16 @@ public class UserExpenseController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping("/{userId}/addexpense")
+    @PostMapping("/{userId}/createexpense")
     public ResponseEntity createUserExpense(@PathVariable int userId, @RequestBody UserExpenseDto userExpenseDto) throws UserNotFoundException {
         userExpenseService.addUserExpense(userId, userExpenseDto);
         return new ResponseEntity<>("User Expense added!", HttpStatus.CREATED);
     }
+
+    @PostMapping("/{expenseId}/adduserexpense/{userExpenseId}")
+    public ResponseEntity addUserExpenseToExpense(@PathVariable int expenseId, @PathVariable int userExpenseId) throws UserExpenseNotFoundException, ExpenseNotFoundException {
+        userExpenseService.addUserExpenseToExpense(userExpenseId, expenseId);
+        return new ResponseEntity<>("User Expense successfully added to a Group Expense", HttpStatus.CREATED);
+    }
+
 }

@@ -1,9 +1,12 @@
 package com.project.splitwise.service.ServiceImplementation;
 
 import com.project.splitwise.dto.ExpenseDto;
+import com.project.splitwise.exception.ExpenseNotFoundException;
 import com.project.splitwise.exception.GroupNotFoundException;
 import com.project.splitwise.model.Expense;
 import com.project.splitwise.model.Group;
+import com.project.splitwise.model.UserExpense;
+import com.project.splitwise.model.UserExpenseType;
 import com.project.splitwise.repository.ExpenseRepository;
 import com.project.splitwise.repository.GroupRepository;
 import com.project.splitwise.service.ExpenseService;
@@ -46,4 +49,26 @@ public class ExpenseServiceImpl implements ExpenseService {
 
         return modelMapper.map(savedexpense, ExpenseDto.class);
     }
+
+    @Override
+    public double getTotalAmountForExpense(int expenseId) throws ExpenseNotFoundException {
+        Expense expense = expenseRepository.findById(expenseId)
+                .orElseThrow(() -> new ExpenseNotFoundException("Expense with the given Id : " + expenseId + " is not created"));
+
+        List<UserExpense> userExpenses = expense.getUserExpenses();
+        double totalAmount = 0;
+
+        for (UserExpense userExpense : userExpenses) {
+            if(userExpense.getUserExpenseType().equals(UserExpenseType.PAID)){
+                totalAmount = totalAmount + userExpense.getAmount();
+            }
+        }
+
+        expense.setAmount(totalAmount);
+        expenseRepository.save(expense);
+
+        return totalAmount;
+    }
+
+
 }
