@@ -11,10 +11,6 @@
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
 - [Configuration](#configuration)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
@@ -53,4 +49,16 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    mvn clean install
 
+## Usage
+
+1. Running the application locally using the following command:
+
+   ```bash
+   mvn spring-boot:run
+
+2. Visit 'http://localhost:8080' along with the API endpoint in you browser to access the Application.
+
+## API Documentation
+## Configuration
+## Contact
 
