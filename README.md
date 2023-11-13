@@ -41,4 +41,16 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   [git clone https://github.com/your-username/splitwise-backend.git](https://github.com/SujiV-repo/Splitwise.git)https://github.com/SujiV-repo/Splitwise.git
+   git clone https://github.com/SujiV-repo/Splitwise.git
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Splitwise
+
+3. Build the Project
+
+   ```bash
+   mvn clean install
+
+
