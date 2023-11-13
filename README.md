@@ -19,11 +19,11 @@
 
 ## Introduction
 
-Splitwise Backend is a Spring Boot application that provides backend services for managing expenses, groups, and user interactions in a splitwise-like application.
+Splitwise is a expense management application designed to simply group finances and ensure fair and transparent sharing of expenses. This project leverages Spring Boot to provide a robust backend infrastructure for handling users, groups, expenses and user interactions.
 
 ## Features
 
-- User management
+- User management 
 - Group creation and management
 - Expense tracking
 - User expenses and settlements
@@ -41,4 +41,4 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/splitwise-backend.git
+   [git clone https://github.com/your-username/splitwise-backend.git](https://github.com/SujiV-repo/Splitwise.git)https://github.com/SujiV-repo/Splitwise.git
