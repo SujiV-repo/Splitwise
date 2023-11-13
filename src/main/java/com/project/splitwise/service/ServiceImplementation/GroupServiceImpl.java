@@ -3,6 +3,7 @@ package com.project.splitwise.service.ServiceImplementation;
 import com.project.splitwise.dto.GroupDto;
 import com.project.splitwise.dto.TransactionDTO;
 import com.project.splitwise.exception.GroupNotFoundException;
+import com.project.splitwise.model.Expense;
 import com.project.splitwise.model.Group;
 import com.project.splitwise.repository.GroupRepository;
 import com.project.splitwise.service.GroupService;
@@ -41,6 +42,22 @@ public class GroupServiceImpl implements GroupService {
         Group group = modelMapper.map(groupDto, Group.class);
         Group savedGroup = groupRepository.save(group);
         return modelMapper.map(savedGroup, GroupDto.class);
+    }
+
+    @Override
+    public double totalAmountSpent(int groupId) throws GroupNotFoundException {
+        Group group = groupRepository.findById(groupId)
+                .orElseThrow(() -> new GroupNotFoundException("Group doesn't exist"));
+        List<Expense> expenses = group.getExpenses();
+
+        double totalAmount = 0;
+        for(Expense expense : expenses){
+            totalAmount = totalAmount + expense.getAmount();
+        }
+
+        group.setTotalAmountSpent(totalAmount);
+        groupRepository.save(group);
+        return totalAmount;
     }
 
 }

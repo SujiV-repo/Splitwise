@@ -10,4 +10,6 @@ public interface GroupService {
     List<TransactionDTO> settleUpByGroupId(int groupId) throws GroupNotFoundException;
 
     GroupDto createGroup(GroupDto groupDto);
+
+    double totalAmountSpent(int groupId) throws GroupNotFoundException;
 }
