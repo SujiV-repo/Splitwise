@@ -6,6 +6,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
+- [Schema](#schema)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -23,6 +24,8 @@ Splitwise is a expense management application designed to simply group finances 
 - Group creation and management
 - Expense tracking
 - User expenses and settlements
+
+## Schema
 
 ## Prerequisites
 
@@ -59,6 +62,16 @@ Before you begin, ensure you have met the following requirements:
 2. Visit 'http://localhost:8080' along with the API endpoint in you browser to access the Application.
 
 ## API Documentation
+
+### Base URL
+
+    ```bash
+    http://localhost:8080/(end point to access)
+
+### End Points
+  #### Users
+  ** Getting User Information **
+  
 ## Configuration
 ## Contact
 
