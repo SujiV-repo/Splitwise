@@ -31,6 +31,7 @@ public class GroupController {
 
     @GetMapping("/{groupId}/totalAmount")
     public ResponseEntity getTotalAmount(@PathVariable int groupId) throws GroupNotFoundException {
-        return new ResponseEntity<>(groupService.totalAmountSpent(groupId), HttpStatus.OK);
+        double totalAmount = groupService.totalAmountSpent(groupId);
+        return new ResponseEntity<>("Total Amount spent by the Group is : "+totalAmount ,HttpStatus.OK);
     }
 }

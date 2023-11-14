@@ -37,7 +37,10 @@ public class UserServiceImpl implements UserService {
         Group group = groupRepository.findById(groupId).orElseThrow(() -> new GroupNotFoundException("Group is not created for the Id : "+ groupId));
 
         user.getGroups().add(group);
+        group.getUsers().add(user);
+
         userRepository.save(user);
+        groupRepository.save(group);
     }
 
     @Override

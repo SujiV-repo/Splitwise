@@ -20,9 +20,9 @@ public class ExpenseController {
         return new ResponseEntity<>(expenseService.createExpenseForGroup(groupId, expenseDto), HttpStatus.CREATED);
     }
 
-    @GetMapping("/{expenseId}/getTotalAmount")
+    @GetMapping("/{expenseId}/totalAmount")
     public ResponseEntity GetTotalAmount(@PathVariable int expenseId) throws ExpenseNotFoundException {
         double amount = expenseService.getTotalAmountForExpense(expenseId);
-        return new ResponseEntity<>(amount, HttpStatus.OK);
+        return new ResponseEntity<>("The total Amount spent is :" +amount, HttpStatus.OK);
     }
 }
