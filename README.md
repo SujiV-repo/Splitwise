@@ -99,13 +99,11 @@ Before you begin, ensure you have met the following requirements:
   * **Request Parameters**
     
     ```bash
-      http://localhost:8080/user/2/addGroup/2
-          
+      http://localhost:8080/user/2/addGroup/2          
   * **Response:**
     
     ```bash
       User added to the Group successfully
-
   
   **Getting group information for any user**
   * **Endpoint:** 'POST/user/{userId}/groups}'
@@ -172,8 +170,7 @@ Before you begin, ensure you have met the following requirements:
   * **Request Parameters**
     
     ```bash
-      http://localhost:8080/group/settleup/2
-          
+      http://localhost:8080/group/settleup/2          
   * **Response:**
     
     ```bash
@@ -202,13 +199,11 @@ Before you begin, ensure you have met the following requirements:
   * **Request Parameters:**
     
     ```bash
-      http://localhost:8080/group/2/totalAmount
-            
+      http://localhost:8080/group/2/totalAmount            
   * **Response:**
     
     ```bash
      Total Amount spent by the Group is : 3000.0
-
 
 ### Expense
 
@@ -221,8 +216,7 @@ Before you begin, ensure you have met the following requirements:
           {
             "description" : "Food Expenses",
             "currency" : "INR"
-          }
-          
+          }          
   * **Response:**
     
     ```bash
@@ -237,13 +231,11 @@ Before you begin, ensure you have met the following requirements:
   * **Request Parameters:**
     
     ```bash
-      http://localhost:8080/expense/1/totalAmount
-            
+      http://localhost:8080/expense/1/totalAmount           
   * **Response:**
     
     ```bash
      The total Amount spent is : 3000.0
-
 
 ### UserExpense
 
@@ -256,8 +248,7 @@ Before you begin, ensure you have met the following requirements:
           {
             "amount" : 600,
             "userExpenseType" : "HADTOPAY"
-          }
-          
+          }          
   * **Response:**
     
     ```bash
@@ -269,32 +260,32 @@ Before you begin, ensure you have met the following requirements:
   * **Request Parameters:**
     
     ```bash
-      http://localhost:8080/userexpense/2/adduserexpense/10
-            
+      http://localhost:8080/userexpense/2/adduserexpense/10            
   * **Response:**
     
     ```bash
      User Expense successfully added to a Group Expense
-
     
 ## Configuration
-## 1. Application Properties
+### Application Properties
 
 The main configuration for the Splitwise project is stored in the `src/main/resources/application.properties` file. 
 Below are key configurations that you may want to customize:
 
-    ```properties
-    # Database Configuration
+  **Database Configuration**
+  
     spring.datasource.url=jdbc:mysql://localhost:3306/splitwise
     spring.datasource.username=root
     spring.datasource.password=root
 
-    # Hibernate Configuration
+  **Hibernate Configuration**
+  
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
     spring.jpa.hibernate.ddl-auto=create
     spring.jpa.properties.hibernate.show_sql=true
 
-    # Additional Hibernate Configuration
+  **Additional Hibernate Configuration**
+      
       spring.jpa.show-sql=true
 
 
