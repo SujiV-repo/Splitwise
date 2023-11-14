@@ -69,17 +69,18 @@ Before you begin, ensure you have met the following requirements:
 
 ### End Points
   #### Users
-    ** Creating Users **
-      * ** Endpoint: **  'POST/user/registeruser'
-      * ** Description: ** Create/Register a new user 
-      * ** Request Body: **
+  ** Creating Users **
+  * ** Endpoint: **  'POST/user/registeruser'
+  * ** Description: ** Create/Register a new user 
+  * ** Request Body: **
         ```bash
-        {
+          {
             "name" : "Mark",
             "email" : "mark45@gmail.com",
             "phoneNumber" : "8529647650"
-        }
-      * ** Response: **
+          }
+          
+  * ** Response: **
         ```bash
         {
             "name": "Mark",
