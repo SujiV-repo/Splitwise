@@ -64,13 +64,28 @@ Before you begin, ensure you have met the following requirements:
 ## API Documentation
 
 ### Base URL
-
     ```bash
-    http://localhost:8080/(end point to access)
+    http://localhost:8080/api-endpoint
 
 ### End Points
   #### Users
-  ** Getting User Information **
+    ** Creating Users **
+      * ** Endpoint: **  'POST/user/registeruser'
+      * ** Description: ** Create/Register a new user 
+      * ** Request Body: **
+        ```bash
+        {
+            "name" : "Mark",
+            "email" : "mark45@gmail.com",
+            "phoneNumber" : "8529647650"
+        }
+      * ** Response: **
+        ```bash
+        {
+            "name": "Mark",
+            "email": "mark45@gmail.com",
+            "phoneNumber": "8529647650"
+        }
   
 ## Configuration
 ## Contact
