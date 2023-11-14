@@ -71,9 +71,10 @@ Before you begin, ensure you have met the following requirements:
   #### Users
 
   **Creating Users**
-    * ** Endpoint: **  'POST/user/registeruser'
-    * ** Description: ** Create/Register a new user 
-    * ** Request Body: **
+  * **Endpoint:** 'POST/user/registeruser'
+  * **Description:** Create/Register a new user 
+  * **Request Body:**
+    
           ```bash
           {
             "name" : "Mark",
@@ -81,7 +82,8 @@ Before you begin, ensure you have met the following requirements:
             "phoneNumber" : "8529647650"
           }
           
-  * ** Response: **
+  * **Response:**
+    
         ```bash
         {
             "name": "Mark",
