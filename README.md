@@ -69,7 +69,7 @@ Before you begin, ensure you have met the following requirements:
 
 ### End Points
 
-  #### Users
+  ### Users
 
   **Creating Users**
   * **Endpoint:** 'POST/user/registeruser'
@@ -91,7 +91,58 @@ Before you begin, ensure you have met the following requirements:
             "email": "mark45@gmail.com",
             "phoneNumber": "8529647650"
         }
+    
   
+  **Adding Users to a group**
+  * **Endpoint:** 'POST/user/{userId}/addGroup/{groupId}'
+  * **Description:** After registering the users, we can add users to any group 
+  * **Request Body:**
+    
+    ```bash
+      http://localhost:8080/user/2/addGroup/2
+          
+  * **Response:**
+    
+    ```bash
+      User added to the Group successfully
+
+  
+  **Getting group information for any user**
+  * **Endpoint:** 'POST/user/{userId}/groups}'
+  * **Description:** Getting the group data for a particular user 
+  * **Request Body:**
+    
+    ```bash
+      http://localhost:8080/user/2/groups
+          
+  * **Response:**
+    
+    ```bash
+        [
+          {
+            "headers": {},
+            "body": {
+              "groupName": "Tracking Expenses",
+              "description": "To Track all the Expenses spent ",
+              "defaultCurrency": "INR"
+          },
+          "statusCode": "OK",
+          "statusCodeValue": 200
+        },
+        {
+          "headers": {},
+          "body": {
+            "groupName": "Goa Trip Expense Tracking",
+            "description": "To track expense for the goa trip",
+            "defaultCurrency": "INR"
+          },
+          "statusCode": "OK",
+          "statusCodeValue": 200
+        }
+    ]
+
+
+
 ## Configuration
 ## Contact
 
