@@ -27,11 +27,14 @@ Splitwise is a expense management application designed to simply group finances 
 
 ## Schema
 
+![image](https://github.com/SujiV-repo/Splitwise/assets/65115305/9eb36988-f143-4c2b-aa42-54ab2cbb25ec)
+
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-- Java 11 or higher
+- Java 17 or higher
 - Maven
 - MySQL or your preferred database
 
