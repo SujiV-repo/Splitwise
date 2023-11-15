@@ -15,11 +15,13 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
+    //Creating a new expense for a group
     @PostMapping("/{groupId}/create-expense")
     public ResponseEntity createExpenseForGroup(@PathVariable int groupId, @RequestBody ExpenseDto expenseDto) throws GroupNotFoundException {
         return new ResponseEntity<>(expenseService.createExpenseForGroup(groupId, expenseDto), HttpStatus.CREATED);
     }
 
+    //Getting total amount spent for each expense
     @GetMapping("/{expenseId}/totalAmount")
     public ResponseEntity GetTotalAmount(@PathVariable int expenseId) throws ExpenseNotFoundException {
         double amount = expenseService.getTotalAmountForExpense(expenseId);

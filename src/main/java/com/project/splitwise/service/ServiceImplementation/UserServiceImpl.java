@@ -24,6 +24,8 @@ public class UserServiceImpl implements UserService {
     private GroupRepository groupRepository;
     @Autowired
     private ModelMapper modelMapper;
+
+    //Registering a user
     @Override
     public UserDto registerUser(UserDto userDto) {
         User user = modelMapper.map(userDto, User.class);
@@ -31,6 +33,7 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(savedUser, UserDto.class);
     }
 
+    //Adding a particular user to any existing group
     @Override
     public void addUserToGroup(int userId, int groupId) throws UserNotFoundException, GroupNotFoundException {
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User is not registered with Id : " + userId));
@@ -43,6 +46,7 @@ public class UserServiceImpl implements UserService {
         groupRepository.save(group);
     }
 
+    //Getting a particular user details
     @Override
     public UserDto getUserById(int userId) throws UserNotFoundException {
         User user = fetchUserForId(userId);
@@ -50,6 +54,7 @@ public class UserServiceImpl implements UserService {
         return userDto;
     }
 
+    //Getting data about which groups user is a part of
     @Override
     public List<GroupDto> getUserGroups(int userId) throws UserNotFoundException {
         User user = fetchUserForId(userId);
@@ -57,16 +62,19 @@ public class UserServiceImpl implements UserService {
         return convertToGroupDTOs(groups);
     }
 
+    //Getting user details for a particular user
     private User fetchUserForId(int userId) throws UserNotFoundException {
         return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User is not registered with Id : "+ userId));
     }
 
+    //converting list of group objects to group dtos
     private List<GroupDto> convertToGroupDTOs(List<Group> groups){
         return groups.stream()
                 .map(this::convertToGroupDTO)
                 .collect(Collectors.toList());
     }
 
+    //Conversion of Group object to GroupDto object
     private GroupDto convertToGroupDTO(Group group) {
         return modelMapper.map(group, GroupDto.class);
     }

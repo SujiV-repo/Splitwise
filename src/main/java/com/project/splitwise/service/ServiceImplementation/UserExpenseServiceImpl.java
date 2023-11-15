@@ -33,6 +33,7 @@ public class UserExpenseServiceImpl implements UserExpenseService {
     @Autowired
     private ExpenseRepository expenseRepository;
 
+    //adding userexpense for money that user owe or spent
     @Override
     public void addUserExpense(int userId, UserExpenseDto userExpenseDto) throws UserNotFoundException {
         UserExpense userExpense = modelMapper.map(userExpenseDto, UserExpense.class);
@@ -44,6 +45,7 @@ public class UserExpenseServiceImpl implements UserExpenseService {
         userExpenseRepository.save(userExpense);
     }
 
+    //Getting all the expenses that a particular user spent or owe to others
     @Override
     public List<UserExpenseDto> getSingleUserExpenses(int userId) {
         List<UserExpense> userExpenses = userExpenseRepository.findByUserId(userId);
@@ -52,6 +54,7 @@ public class UserExpenseServiceImpl implements UserExpenseService {
                 .collect(Collectors.toList());
     }
 
+    //adding a particular user expense to a group expense to track the particular expense
     @Override
     public void addUserExpenseToExpense(int userExpenseId, int expenseId) throws UserExpenseNotFoundException, ExpenseNotFoundException {
         UserExpense userExpense = userExpenseRepository.findById(userExpenseId)

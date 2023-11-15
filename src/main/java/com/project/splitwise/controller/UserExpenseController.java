@@ -24,12 +24,14 @@ public class UserExpenseController {
     @Autowired
     private ModelMapper modelMapper;
 
+    //Creating a single user expense for a particular user
     @PostMapping("/{userId}/createexpense")
     public ResponseEntity createUserExpense(@PathVariable int userId, @RequestBody UserExpenseDto userExpenseDto) throws UserNotFoundException {
         userExpenseService.addUserExpense(userId, userExpenseDto);
         return new ResponseEntity<>("User Expense added!", HttpStatus.CREATED);
     }
 
+    //Adding a particular expense to a group expense
     @PostMapping("/{expenseId}/adduserexpense/{userExpenseId}")
     public ResponseEntity addUserExpenseToExpense(@PathVariable int expenseId, @PathVariable int userExpenseId) throws UserExpenseNotFoundException, ExpenseNotFoundException {
         userExpenseService.addUserExpenseToExpense(userExpenseId, expenseId);

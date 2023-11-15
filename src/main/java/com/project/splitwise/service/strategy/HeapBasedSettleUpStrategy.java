@@ -72,6 +72,7 @@ public class HeapBasedSettleUpStrategy implements SettleUpStrategy{
         return transactions;
     }
 
+    //Calculating the whole outstanding amount of the Paid user and user who have not paid
     private Double getUpdatedOutStandingAmount(double currentOutstandingAmount, UserExpense userExpense) {
         if(userExpense.getUserExpenseType().equals(UserExpenseType.PAID)){
             currentOutstandingAmount = currentOutstandingAmount + userExpense.getAmount();

@@ -24,6 +24,7 @@ public class GroupServiceImpl implements GroupService {
     @Autowired
     private ModelMapper modelMapper;
 
+    //Settling up each user expenses in a group and getting the who owes how much to others in the group
     @Override
     public List<TransactionDTO> settleUpByGroupId(int groupId) throws GroupNotFoundException {
         SettleUpStrategy strategy = SettleUpStrategyFactory.getSettleUpStrategy(SettleUpStrategies.HeapBased_SettleUpStrategy);
@@ -37,6 +38,7 @@ public class GroupServiceImpl implements GroupService {
         return transactions;
     }
 
+    //Creating a new group to track expenses
     @Override
     public GroupDto createGroup(GroupDto groupDto) {
         Group group = modelMapper.map(groupDto, Group.class);
@@ -44,6 +46,7 @@ public class GroupServiceImpl implements GroupService {
         return modelMapper.map(savedGroup, GroupDto.class);
     }
 
+    //Getting total Amount spent by each group
     @Override
     public double totalAmountSpent(int groupId) throws GroupNotFoundException {
         Group group = groupRepository.findById(groupId)

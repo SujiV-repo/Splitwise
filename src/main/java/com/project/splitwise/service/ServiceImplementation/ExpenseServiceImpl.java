@@ -28,7 +28,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Autowired
     private GroupRepository groupRepository;
 
-
+    //Creating an expense for a particular existing group
     @Override
     public ExpenseDto createExpenseForGroup(int groupId, ExpenseDto expenseDto) throws GroupNotFoundException {
         Expense expense = modelMapper.map(expenseDto, Expense.class);
@@ -50,6 +50,7 @@ public class ExpenseServiceImpl implements ExpenseService {
         return modelMapper.map(savedexpense, ExpenseDto.class);
     }
 
+    //Fetching total amount for an Expense in the group
     @Override
     public double getTotalAmountForExpense(int expenseId) throws ExpenseNotFoundException {
         Expense expense = expenseRepository.findById(expenseId)
